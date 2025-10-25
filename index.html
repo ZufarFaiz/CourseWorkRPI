@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер заявок техподдержки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Трекер заявок техподдержки</h1>
+                <div class="user-info">
+                    <div class="avatar">ЗФ</div>
+                    <span>Зуфар Файзетдинов</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <aside class="sidebar">
+                <h2 class="section-title">Фильтры</h2>
+                
+                <div class="filter-group">
+                    <label for="status-filter">Статус</label>
+                    <select id="status-filter">
+                        <option value="all">Все статусы</option>
+                        <option value="open">Открыт</option>
+                        <option value="in-progress">В работе</option>
+                        <option value="closed">Закрыт</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priority-filter">Приоритет</label>
+                    <select id="priority-filter">
+                        <option value="all">Все приоритеты</option>
+                        <option value="low">Низкий</option>
+                        <option value="medium">Средний</option>
+                        <option value="high">Высокий</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="date-filter">Дата создания</label>
+                    <input type="date" id="date-filter">
+                </div>
+                
+                <button id="apply-filters">Применить фильтры</button>
+                <button id="reset-filters" class="btn-secondary">Сбросить</button>
+                
+                <div class="template-list">
+                    <h2 class="section-title">Шаблоны ответов</h2>
+                    
+                    <div class="template-item">
+                        <div class="template-title">Приветствие</div>
+                        <div class="template-content">Здравствуйте! Благодарим за обращение в нашу службу поддержки...</div>
+                    </div>
+                    
+                    <div class="template-item">
+                        <div class="template-title">Решение проблемы</div>
+                        <div class="template-content">Для решения вашей проблемы выполните следующие действия...</div>
+                    </div>
+                    
+                    <div class="template-item">
+                        <div class="template-title">Эскалация</div>
+                        <div class="template-content">Ваш запрос передан специалисту для более детального рассмотрения...</div>
+                    </div>
+                    
+                    <div class="template-item">
+                        <div class="template-title">Закрытие обращения</div>
+                        <div class="template-content">Благодарим за обращение. Если у вас возникнут дополнительные вопросы...</div>
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="content">
+                <h2 class="section-title">Создание новой заявки</h2>
+                
+                <div class="ticket-form">
+                    <form id="new-ticket-form">
+                        <div class="form-group">
+                            <label for="ticket-title">Заголовок</label>
+                            <input type="text" id="ticket-title" placeholder="Краткое описание проблемы">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ticket-description">Описание</label>
+                            <textarea id="ticket-description" rows="4" placeholder="Подробное описание проблемы"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ticket-priority">Приоритет</label>
+                            <select id="ticket-priority">
+                                <option value="low">Низкий</option>
+                                <option value="medium" selected>Средний</option>
+                                <option value="high">Высокий</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" class="btn-success">Создать заявку</button>
+                    </form>
+                </div>
+                
+                <h2 class="section-title">Список заявок</h2>
+                
+                <div class="ticket-list" id="ticket-list">
+                    <div class="ticket-item">
+                        <div class="ticket-header">
+                            <span class="ticket-id">TK-001</span>
+                            <span class="status-badge status-open">Открыт</span>
+                        </div>
+                        <div class="ticket-title">Проблема с доступом к системе</div>
+                        <div class="ticket-description">Пользователь не может войти в систему с корректными учетными данными</div>
+                        <div class="ticket-meta">
+                            <span>2023-10-15 • Петров А.</span>
+                            <span class="priority-badge priority-high">Высокий</span>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-success">Изменить статус</button>
+                            <button class="btn-warning">Исп. шаблон</button>
+                            <button class="btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-header">
+                            <span class="ticket-id">TK-002</span>
+                            <span class="status-badge status-in-progress">В работе</span>
+                        </div>
+                        <div class="ticket-title">Ошибка в отчете</div>
+                        <div class="ticket-description">В отчете о продажах не отображаются данные за последнюю неделю</div>
+                        <div class="ticket-meta">
+                            <span>2023-10-14 • Сидорова М.</span>
+                            <span class="priority-badge priority-medium">Средний</span>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-success">Изменить статус</button>
+                            <button class="btn-warning">Исп. шаблон</button>
+                            <button class="btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="ticket-item">
+                        <div class="ticket-header">
+                            <span class="ticket-id">TK-003</span>
+                            <span class="status-badge status-closed">Закрыт</span>
+                        </div>
+                        <div class="ticket-title">Вопрос по функционалу</div>
+                        <div class="ticket-description">Как экспортировать данные в формате Excel?</div>
+                        <div class="ticket-meta">
+                            <span>2023-10-10 • Козлов И.</span>
+                            <span class="priority-badge priority-low">Низкий</span>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-success">Изменить статус</button>
+                            <button class="btn-warning">Исп. шаблон</button>
+                            <button class="btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
